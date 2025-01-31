@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    * {
+      font-family: 'Figtree', sans-serif;
+    }
+
+    body {
+      color: #333;
+      font-size: 14px;
+      line-height: 20px;
+      margin: 0px;
+      background-color: white;
+      min-height: 100%;
+    }
+
+    section {
+      padding: 4rem;
+    }
+
+    section h1 {
+      margin-bottom: 3rem;
+    }
+  }
