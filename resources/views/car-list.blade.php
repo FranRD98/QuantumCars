@@ -1,16 +1,14 @@
-@include('layouts.header', ['title' => 'QuantumCars Rent - Lista de vehículos'])
+@include('layouts.header', ['title' => 'Lista de vehículos | QuantumCars Rent'])
 
 <!-- Buscador de vehículos -->
 <section class="px-8 py-16 bg-gray-100">
 
-<h1 class="mb-2 text-3xl font-bold text-center">
-    @if(isset($brand))
-        Vehículos de la marca: {{ $brand }}
-    @else
-        Encuentra tu vehículo
-    @endif
-</h1>
-<h1 class="text-2xl text-center">Hemos encontrado <span class="text-[#8b82f6]">500</span> vehículos</h1>
+@if($vehicles->isEmpty())
+
+@else
+
+<h1 class="text-2xl text-center">Hemos encontrado <span class="text-[#8b82f6]">{{ $vehicles->count() }}</span> vehículos</h1>
+@endif
 
     <!-- Buscador -->
     <div class="flex w-full items-center justify-center py-8 bg-white rounded-lg shadow-[0px_10px_20px_#8b82f64d] gap-2">
@@ -40,7 +38,7 @@
                 function redirectToBrandPage() {
                     const brand = document.getElementById('car-brand').value;
                     if (brand) {
-                        window.location.href = `/vehicles/${brand}`;
+                        window.location.href = '/vehicles/brand/${brand}';
                     }
                 }
             </script>
@@ -168,68 +166,41 @@
             </section>
 
 <!-- Listado de vehículos -->
-<!-- Listado de vehículos -->
 <section class="py-12">
+
+    <!-- Listar vehículos -->
+    @if($vehicles->isEmpty())
+        <div class="flex flex-col items-center justify-center gap-y-2">
+            <img src="car_icon.svg">
+            <h1 class="text-3xl text-center text-[#050f23]">No se han encontrado vehículos</h1>
+            <h1 class="text-xl text-center text-[#696F7A]">Por favor, cambia los valores de búsqueda</h1>
+
+        </div>
+
+    @else
     <div class="grid grid-cols-1 gap-8 px-6 mx-auto max-w-7xl sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
-        <!-- Card 1 -->
-        <a href="{{ route('vehicle.show', ['id' => 1]) }}" class="overflow-hidden bg-white rounded-lg shadow-lg group">
-            <div class="relative">
-                <img class="object-cover w-full h-64 transition-all duration-300 ease-in-out group-hover:scale-105" src="https://cdn.prod.website-files.com/65c241b0beb6eb08772e7dba/679bde10bd3938f49ca472ef_PHOTO-2025-01-30-15-33-15%203.jpg" alt="Volkswagen Golf GTI">
-            </div>
-            <div class="p-6">
-                <h2 class="text-xl font-semibold text-gray-800">2019 Volkswagen Golf GTI</h2>
-                <div class="flex justify-between mt-2 text-gray-600">
-                    <p class="text-lg font-semibold">26.000€</p>
-                    <p class="text-lg font-semibold">40.000km</p>
-                </div>
-            </div>
-        </a>
+        
 
-        <!-- Card 2 -->
-        <a href="{{ route('vehicle.show', ['id' => 2]) }}" class="overflow-hidden bg-white rounded-lg shadow-lg group">
-            <div class="relative">
-                <img class="object-cover w-full h-64 transition-all duration-300 ease-in-out group-hover:scale-105" src="https://cdn.prod.website-files.com/65c241b0beb6eb08772e7dba/679bde10bd3938f49ca472ef_PHOTO-2025-01-30-15-33-15%203.jpg" alt="Volkswagen Golf GTI">
-            </div>
-            <div class="p-6">
-                <h2 class="text-xl font-semibold text-gray-800">2019 Volkswagen Golf GTI</h2>
-                <div class="flex justify-between mt-2 text-gray-600">
-                    <p class="text-lg font-semibold">26.000€</p>
-                    <p class="text-lg font-semibold">40.000km</p>
+        @foreach ($vehicles as $vehicle)
+        
+            <a href="{{ route('vehicle.show', ['id' => $vehicle->id]) }}" class="overflow-hidden bg-white rounded-lg shadow-lg group">
+                <div class="relative">
+                    <img class="object-cover w-full h-64 transition-all duration-300 ease-in-out group-hover:scale-105" 
+                    src="{{ asset('storage/' . $vehicle->image) }}" alt="{{ $vehicle->brand }} {{ $vehicle->model }}">
                 </div>
-            </div>
-        </a>
+                <div class="p-6">
+                    <h2 class="text-xl font-semibold text-gray-800">{{ $vehicle->year }} {{ $vehicle->brand }} {{ $vehicle->model }}</h2>
+                    <div class="flex justify-between mt-2 text-gray-600">
+                        <p class="text-lg font-semibold">{{ number_format($vehicle->price, 0, ',', '.') }} €</p>
+                        <p class="text-lg font-semibold">40.000km</p>
+                    </div>
+                </div>
+            </a>
 
-        <!-- Card 3 -->
-        <a href="{{ route('vehicle.show', ['id' => 3]) }}" class="overflow-hidden bg-white rounded-lg shadow-lg group">
-            <div class="relative">
-                <img class="object-cover w-full h-64 transition-all duration-300 ease-in-out group-hover:scale-105" src="https://cdn.prod.website-files.com/65c241b0beb6eb08772e7dba/679bde10bd3938f49ca472ef_PHOTO-2025-01-30-15-33-15%203.jpg" alt="Volkswagen Golf GTI">
-            </div>
-            <div class="p-6">
-                <h2 class="text-xl font-semibold text-gray-800">2019 Volkswagen Golf GTI</h2>
-                <div class="flex justify-between mt-2 text-gray-600">
-                    <p class="text-lg font-semibold">26.000€</p>
-                    <p class="text-lg font-semibold">40.000km</p>
-                </div>
-            </div>
-        </a>
-
-        <!-- Card 4 -->
-        <a href="{{ route('vehicle.show', ['id' => 4]) }}" class="overflow-hidden bg-white rounded-lg shadow-lg group">
-            <div class="relative">
-                <img class="object-cover w-full h-64 transition-all duration-300 ease-in-out group-hover:scale-105" src="https://cdn.prod.website-files.com/65c241b0beb6eb08772e7dba/679bde10bd3938f49ca472ef_PHOTO-2025-01-30-15-33-15%203.jpg" alt="Volkswagen Golf GTI">
-            </div>
-            <div class="p-6">
-                <h2 class="text-xl font-semibold text-gray-800">2019 Volkswagen Golf GTI</h2>
-                <div class="flex justify-between mt-2 text-gray-600">
-                    <p class="text-lg font-semibold">26.000€</p>
-                    <p class="text-lg font-semibold">40.000km</p>
-                </div>
-            </div>
-        </a>
+        @endforeach
+    @endif
 
     </div>
 </section>
 
 @include('layouts.footer')
-
-

@@ -20,6 +20,6 @@ class Vehicle extends Model
 
     // Si necesitas especificar los campos que pueden ser asignados masivamente:
     protected $fillable = [
-        'brand', 'model', 'type', 'year', 'mileage', 'transmission','combustible','color', 'price', 'image',
+        'brand', 'model', 'year', 'color', 'fuel', 'mileage', 'transmission','price', 'type', 'image', 'image_1', 'image_2', 'image_3', 'image_4', 'image_5', 'description', 'fee', 'typeWarranty', 'published', 'available'
     ];
 }

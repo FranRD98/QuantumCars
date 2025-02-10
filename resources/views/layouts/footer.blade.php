@@ -7,20 +7,31 @@
             <div>
                 <div>
                     <h2 class="text-xl font-bold text-white">Menu</h2>
-                    <nav class="flex flex-col">
-                    <a href="#" class="text-base transition-all duration-500 hover:text-white">Vehículos</a>
-                    <a href="#" class="text-base transition-all duration-500 hover:text-white">Dashboard</a>
-                </nav>
+                        <nav class="flex flex-col">
+                            <a href="{{ route('vehicle.index') }}" class="text-base transition-all duration-500 hover:text-white">Vehículos</a>
+                            <a href="{{ route('faq') }}" class="text-base transition-all duration-500 hover:text-white">Preguntas Frecuentes</a>
+                            <a href="{{ route('contact') }}" class="text-base transition-all duration-500 hover:text-white">Contactar</a>
+                        </nav>
                 </div>
             </div>
             <div>
             <div>
                 <h2 class="text-xl font-bold text-white">Contacto</h2>
                 <nav class="flex flex-col">
-                    <a href="#" class="text-base transition-all duration-500 hover:text-white">+34 912 345 678</a>
-                    <a href="#" class="text-base transition-all duration-500 hover:text-white">info@quantumcars.com</a>
+                    <a href="tel:+34600123456" class="text-base transition-all duration-500 hover:text-white">+34 600 123 456</a>
+                    <a href="mailto:info@quantumcars.com" class="text-base transition-all duration-500 hover:text-white">info@quantumcars.com</a>
                 </nav>
-                </div>
+            </div>
+            <div>
+                <h2 class="text-xl font-bold text-white">ADMIN</h2>
+                <nav class="flex flex-col">
+                    <a href="http://localhost/admin/manage-cars" class="text-base transition-all duration-500 hover:text-white">Crear coche</a>
+                    <a href="http://localhost/admin/manage-warranties" class="text-base transition-all duration-500 hover:text-white">Crear Garantía</a>
+                </nav>
+            </div>
+
+
+
             </div>
         </div>
         <hr class="bg-[#8e939b] opacity-30 my-6">
