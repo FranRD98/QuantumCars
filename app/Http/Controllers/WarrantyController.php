@@ -11,14 +11,14 @@ class WarrantyController extends Controller
     public function index()
     {
         $warranties = Warranty::all();
-        return view('admin-panel.manage-warranties', compact('warranties'));
+        return view('admin-panel.warranties.manage-warranties', compact('warranties'));
 
     }
 
     // Mostrar el formulario para crear una nueva garantía
     public function create()
     {
-        return view('warranties.create');
+        return view('warranty.create');
     }
 
     // Guardar una nueva garantía en la base de datos
@@ -40,14 +40,14 @@ class WarrantyController extends Controller
     public function show($id)
     {
         $warranty = Warranty::findOrFail($id);
-        return view('warranties.show', compact('warranty'));
+        return view('warranty.show', compact('warranty'));
     }
 
     // Mostrar el formulario para editar una garantía
     public function edit($id)
     {
         $warranty = Warranty::findOrFail($id);
-        return view('warranties.edit', compact('warranty'));
+        return view('admin-panel.warranties.warranty-edit', compact('warranty'));
     }
 
     // Actualizar una garantía existente
@@ -63,7 +63,7 @@ class WarrantyController extends Controller
         $warranty = Warranty::findOrFail($id);
         $warranty->update($validated);
 
-        return redirect()->route('warranties.index')->with('success', 'Garantía actualizada correctamente.');
+        return redirect()->route('warranty.index')->with('success', 'Garantía actualizada correctamente.');
     }
 
     // Eliminar una garantía
@@ -72,7 +72,7 @@ class WarrantyController extends Controller
         $warranty = Warranty::findOrFail($id);
         $warranty->delete();
 
-        return redirect()->route('warranties.index')->with('success', 'Garantía eliminada correctamente.');
+        return redirect()->route('warranty.index')->with('success', 'Garantía eliminada correctamente.');
     }
 }
 

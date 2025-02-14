@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\WarrantyController;
+use App\Http\Controllers\BookingController;
 
 // PÁGINA DE INICIO
 Route::get('/', function () {
@@ -60,6 +61,11 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
+// TERMINOS Y CONDICIONES
+Route::get('/terminos-y-condiciones', function () {
+    return view('terms');
+})->name('terms');
+
 
 /* 
     OPCIONES ADMINISTRADOR 
@@ -72,30 +78,47 @@ Route::get('/admin', function () {
 // GESTIONAR VEHÍCULOS
 Route::get('/admin/manage-cars', [VehicleController::class, 'adminIndex'])->name('manage-cars');
 
-Route::get('/admin/create-car', function () {
-    return view('admin-panel.vehicle-create');
+Route::get('/admin/cars/create', function () {
+    return view('admin-panel.cars.vehicle-create');
 })->name('vehicle.create');
 
 // Crear vehículo en la BBDD
-Route::post('/admin/vehicle/store', [VehicleController::class, 'store'])->name('vehicle.store');
+Route::post('/admin/vehicles/store', [VehicleController::class, 'store'])->name('vehicle.store');
+
+// Editar vehículo
+Route::get('admin/vehicle/edit/{id}', [VehicleController::class, 'edit'])->name('vehicle.edit');
+Route::put('admin/vehicle/edit/{id}', [VehicleController::class, 'update'])->name('vehicle.update');
+Route::delete('admin/vehicle/delete/{id}', [VehicleController::class, 'destroy'])->name('vehicle.destroy');
 
 /* ---------- */
 
 // GESTIONAR GARANTÍAS
 Route::get('/admin/manage-warranties', [WarrantyController::class, 'index'])->name('warranty.index');
 
-
 Route::get('/admin/create-warranty', function () {
-    return view('admin-panel.warranty-create');
+    return view('admin-panel.warranties.warranty-create');
 })->name('warranty.create');
 
 // Crear garantía en la BBDD
 Route::post('/admin/warranty/store', [WarrantyController::class, 'store'])->name('warranty.store');
 
+// Editar Garantía
+Route::get('admin/warranty/edit/{id}', [WarrantyController::class, 'edit'])->name('warranty.edit');
+Route::put('admin/warranty/edit/{id}', [WarrantyController::class, 'update'])->name('warranty.update');
+Route::delete('admin/warranty/delete/{id}', [WarrantyController::class, 'destroy'])->name('warranty.destroy');
+
+// GESTIONAR RESERVAS
 Route::get('/admin/manage-bookings', function () {
     return view('admin-panel.manage-bookings');
 })->name('manage-bookings');
 
+Route::get('/verify-booking', [BookingController::class, 'verify'])->name('booking.verify');
+
+// Crear reserva en la BBDD
+Route::post('/admin/booking/store', [BookingController::class, 'store'])->name('booking.store');
+
+// GESTIONAR USUARIOS
 Route::get('/admin/manage-users', function () {
     return view('admin-panel.manage-users');
 })->name('manage-users');
+

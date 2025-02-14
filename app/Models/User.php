@@ -36,4 +36,9 @@ class User extends Authenticatable
     {
         return $this->role === 'cliente';
     }
+
+    public function user(): string
+    {
+        return $this->name;
+    }
 }

@@ -1,5 +1,7 @@
 @include('admin-panel.header-admin', ['title' => 'Nueva Garantía | QuantumCars Rent'])
 
+<!-- Contenido principal -->
+<main class="ml-48">
 <section class="bg-gray-100">
     <h1 class="text-4xl text-center">Crear Garantía</h1>
 </section>
@@ -59,4 +61,8 @@
     </div>
 </section>
 
-@include('layouts.footer')
+</main>
+</body>
+
+</html>
+

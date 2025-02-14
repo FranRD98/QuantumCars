@@ -10,6 +10,7 @@
 <h1 class="text-2xl text-center">Hemos encontrado <span class="text-[#8b82f6]">{{ $vehicles->count() }}</span> vehículos</h1>
 @endif
 
+{{--
     <!-- Buscador -->
     <div class="flex w-full items-center justify-center py-8 bg-white rounded-lg shadow-[0px_10px_20px_#8b82f64d] gap-2">
 
@@ -163,7 +164,7 @@
     </div>
 
 
-            </section>
+            </section> --}}
 
 <!-- Listado de vehículos -->
 <section class="py-12">
@@ -182,21 +183,22 @@
         
 
         @foreach ($vehicles as $vehicle)
-        
+        @if($vehicle->published === 1)
+
             <a href="{{ route('vehicle.show', ['id' => $vehicle->id]) }}" class="overflow-hidden bg-white rounded-lg shadow-lg group">
                 <div class="relative">
                     <img class="object-cover w-full h-64 transition-all duration-300 ease-in-out group-hover:scale-105" 
-                    src="{{ asset('storage/' . $vehicle->image) }}" alt="{{ $vehicle->brand }} {{ $vehicle->model }}">
+                    src="{{ asset('storage/' . $vehicle->image_1) }}" alt="{{ $vehicle->brand }} {{ $vehicle->model }}">
                 </div>
                 <div class="p-6">
                     <h2 class="text-xl font-semibold text-gray-800">{{ $vehicle->year }} {{ $vehicle->brand }} {{ $vehicle->model }}</h2>
-                    <div class="flex justify-between mt-2 text-gray-600">
-                        <p class="text-lg font-semibold">{{ number_format($vehicle->price, 0, ',', '.') }} €</p>
-                        <p class="text-lg font-semibold">40.000km</p>
+                    <div class="flex justify-between mt-2 text-gray-900">
+                        <p class="text-lg font-semibold"><strong>{{ number_format($vehicle->price, 0, ',', '.') }} €</strong>/día</p>
+                        <p class="text-lg font-semibold">{{ number_format($vehicle->mileage, 0, ',', '.') }}km</p>
                     </div>
                 </div>
             </a>
-
+        @endif
         @endforeach
     @endif
 

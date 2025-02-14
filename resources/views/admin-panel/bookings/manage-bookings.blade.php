@@ -1,16 +1,11 @@
-@include('admin-panel.header-admin', ['title' => 'Gestionar Coches | QuantumCars Rent'])
+@include('admin-panel.header-admin', ['title' => 'Gestionar Reservas | QuantumCars Rent'])
 
 <!-- Contenido principal -->
 <main class="ml-48">
 <section>
 
         <div class="flex items-center justify-between mb-6">
-            <h1 class="text-4xl">Gestionar Coches</h1>
-
-            <!-- Botón de añadir nuevo vehículo -->
-            <div class="flex justify-end">
-                <a class="px-8 py-3 bg-gray-100 text-[#8b82f6] hover:bg-[#8b82f6] hover:text-white rounded-lg transition duration-500 text-lg font-medium" href="{{ route('vehicle.create') }}">Añadir Coche</a>
-            </div>
+            <h1 class="text-4xl">Gestionar Reservas</h1>
         </div>
 
         <table class="min-w-full bg-white border-collapse table-auto">

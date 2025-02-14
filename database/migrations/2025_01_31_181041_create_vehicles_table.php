@@ -23,12 +23,12 @@ return new class extends Migration
             $table->enum('transmission', ['Manual', 'Automático']);
             $table->decimal('price', 10, 2);
             $table->enum('type', ['Compacto', 'SUV', 'Sedán', 'Deportivo', 'Furgoneta', 'Electrico', 'Otro']);
-            $table->string('image')->nullable(); // URL de la imagen opcional
             $table->string('image_1')->nullable(); // URL de la imagen opcional
             $table->string('image_2')->nullable(); // URL de la imagen opcional
             $table->string('image_3')->nullable(); // URL de la imagen opcional
             $table->string('image_4')->nullable(); // URL de la imagen opcional
             $table->string('image_5')->nullable(); // URL de la imagen opcional
+            $table->string('image_6')->nullable(); // URL de la imagen opcional
             $table->text('description');
             $table->integer('fee');
             $table->string('typeWarranty');

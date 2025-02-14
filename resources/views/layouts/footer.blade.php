@@ -11,6 +11,7 @@
                             <a href="{{ route('vehicle.index') }}" class="text-base transition-all duration-500 hover:text-white">Vehículos</a>
                             <a href="{{ route('faq') }}" class="text-base transition-all duration-500 hover:text-white">Preguntas Frecuentes</a>
                             <a href="{{ route('contact') }}" class="text-base transition-all duration-500 hover:text-white">Contactar</a>
+                            <a href="{{ route('terms') }}" class="text-base transition-all duration-500 hover:text-white">Terminos y condiciones</a>
                         </nav>
                 </div>
             </div>
