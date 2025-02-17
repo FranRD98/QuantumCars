@@ -3,7 +3,6 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VehicleController;
-use App\Http\Controllers\WarrantyController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\UserController;
 
@@ -52,6 +51,13 @@ Route::get('/terminos-y-condiciones', function () {
 })->name('terms');
 
 
+/* ACCIONES COMUNES */
+Route::middleware('auth')->group(function () {
+    Route::post('/booking/store', [BookingController::class, 'store'])->name('booking.store'); // Almacenar reserva
+});
+
+
+
 /* ACCIONES USUARIOS */
 Route::middleware(CheckRole::class . ':cliente')->group(function () {
     Route::get('/verify-booking', [BookingController::class, 'verify'])->name('booking.verify'); // Cesta de la reserva
@@ -67,25 +73,15 @@ Route::middleware(CheckRole::class . ':admin')->group(function () {
     // GESTIONAR VEHÍCULOS - VEHICLES
     Route::get('/admin/manage-cars', [VehicleController::class, 'adminIndex'])->name('manage-cars');
 
-    Route::get('/admin/vehicle/create', [VehicleController::class, 'create'])->name('vehicle.create'); //Crear garantía
+    Route::get('/admin/vehicle/create', [VehicleController::class, 'create'])->name('vehicle.create'); //Crear vehículo
     Route::post('/admin/vehicle/store', [VehicleController::class, 'store'])->name('vehicle.store'); // Almacenar vehículo
     Route::get('admin/vehicle/edit/{id}', [VehicleController::class, 'edit'])->name('vehicle.edit'); // Editar vehículo
     Route::put('admin/vehicle/edit/{id}', [VehicleController::class, 'update'])->name('vehicle.update'); // Actualizar vehículo
     Route::delete('admin/vehicle/delete/{id}', [VehicleController::class, 'destroy'])->name('vehicle.destroy'); // Eliminar vehículo
 
-    // GARANTIAS - WARRANTIES
-    Route::get('/admin/manage-warranties', [WarrantyController::class, 'index'])->name('manage-warranties');
-
-    Route::get('/admin/warranty/create', [WarrantyController::class, 'create'])->name('warranty.create'); //Crear garantía
-    Route::post('/admin/warranty/store', [WarrantyController::class, 'store'])->name('warranty.store'); // Almacenar garantía
-    Route::get('admin/warranty/edit/{id}', [WarrantyController::class, 'edit'])->name('warranty.edit'); // Editar garantía
-    Route::put('admin/warranty/edit/{id}', [WarrantyController::class, 'update'])->name('warranty.update'); // Actualizar garantía
-    Route::delete('admin/warranty/delete/{id}', [WarrantyController::class, 'destroy'])->name('warranty.destroy'); // Eliminar garantía
-
     // RESERVAS - BOOKINGS
     Route::get('/admin/manage-bookings', [BookingController::class, 'index'])->name('manage-bookings');
 
-    Route::post('/booking/store', [BookingController::class, 'store'])->name('booking.store'); // Almacenar reserva
     Route::get('admin/booking/edit/{id}', [BookingController::class, 'edit'])->name('booking.edit'); // Editar reserva
     Route::put('admin/booking/edit/{id}', [BookingController::class, 'update'])->name('booking.update'); // Actualizar reserva
     Route::delete('admin/booking/delete/{id}', [BookingController::class, 'destroy'])->name('booking.destroy'); // Eliminar reserva

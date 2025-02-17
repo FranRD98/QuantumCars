@@ -132,13 +132,8 @@
             const startDate = new Date(startDateInput.value);
             const endDate = new Date(endDateInput.value);
 
-            // Asegúrate de que las fechas sean correctas antes de enviar
             startDateInput.value = startDate.toISOString().split('T')[0]; // 'YYYY-MM-DD'
             endDateInput.value = endDate.toISOString().split('T')[0];     // 'YYYY-MM-DD'
-            
-            // Verifica las fechas antes de enviar el formulario
-            console.log("Start Date:", startDateInput.value);
-            console.log("End Date:", endDateInput.value);
         });
 
 

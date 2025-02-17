@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Vehicle;
-use App\Models\Warranty;
 use App\Models\Booking;
 
 use Illuminate\Http\Request;
@@ -134,7 +133,6 @@ class VehicleController extends Controller
     public function show($id)
     {
         $vehicle = Vehicle::findOrFail($id); // Buscar un vehículo por ID
-        $warranties = Warranty::where('vehicle_type', $vehicle->typeWarranty)->get();
         $bookings = Booking::where('vehicle_id', $vehicle->id)
             ->where('start_date', '>=', date('Ymd'))
             ->get();
@@ -147,7 +145,7 @@ class VehicleController extends Controller
             ];
         })->toArray();
     
-        return view('car-detail', compact('vehicle', 'warranties', 'bookings','bookedDates'));
+        return view('car-detail', compact('vehicle', 'bookings','bookedDates'));
     }
 
     // Método para mostrar el formulario de creación de un nuevo vehículo
@@ -176,7 +174,6 @@ class VehicleController extends Controller
             'image_5' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp,avif',
             'description' => 'nullable|string',
             'fee' => 'required|numeric',
-            'typeWarranty' => 'nullable|string|max:255',
             'published' => 'nullable|boolean',
             'available' => 'nullable|boolean',
         ]);
@@ -212,7 +209,6 @@ class VehicleController extends Controller
             'image_5' => $imagePaths['image_5'],
             'description' => $validated['description'],
             'fee' => $validated['fee'],
-            'typeWarranty' => $validated['type'],
             'published' => $validated['published'],
             'available' => $validated['available'],
         ]);
@@ -249,7 +245,6 @@ class VehicleController extends Controller
                 'image_5' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp',
                 'description' => 'nullable|string',
                 'fee' => 'required|numeric',
-                'typeWarranty' => 'nullable|string|max:255',
                 'published' => 'nullable|boolean',
                 'available' => 'nullable|boolean',
             ]);
@@ -277,7 +272,6 @@ class VehicleController extends Controller
                 'price' => $validated['price'],
                 'description' => $validated['description'],
                 'fee' => $validated['fee'],
-                'typeWarranty' => $validated['type'],
                 'published' => $validated['published'] ?? false,
                 'available' => $validated['available'] ?? false,
             ]);
@@ -290,7 +284,10 @@ class VehicleController extends Controller
              // Buscar el vehículo en la base de datos
             $vehicle = Vehicle::findOrFail($id);
 
+            $bookings = Booking::where('vehicle_id', $id);
+
             $vehicle->delete();
+            $bookings->delete();
             return redirect()->route('manage-cars');
 
         }

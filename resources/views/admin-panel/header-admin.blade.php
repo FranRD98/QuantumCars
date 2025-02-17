@@ -40,12 +40,6 @@
         </a>
     </li>
     <li>
-        <a href="{{ route('manage-warranties') }}" 
-           class="block px-4 py-2 transition-all {{ request()->routeIs('warranty.index') ? 'text-[#8b82f6]' : 'hover:text-[#8b82f6]' }}">
-            Gestionar Garantías
-        </a>
-    </li>
-    <li>
         <a href="{{ route('manage-bookings') }}" 
            class="block px-4 py-2 transition-all {{ request()->routeIs('manage-bookings') ? 'text-[#8b82f6]' : 'hover:text-[#8b82f6]' }}">
             Gestionar Reservas

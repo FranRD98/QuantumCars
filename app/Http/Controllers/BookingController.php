@@ -37,13 +37,11 @@ class BookingController extends Controller
         $start_date = $request->start_date;
         $end_date = $request->end_date;
 
-        return view('admin-panel.bookings.booking-verify', compact('vehicle', 'total_price', 'days', 'start_date', 'end_date'));
+        return view('booking-verify', compact('vehicle', 'total_price', 'days', 'start_date', 'end_date'));
     }
 
 // Guardar una nueva reserva en la base de datos
-
-public function store(Request $request)
-{
+public function store(Request $request){
     
     // Continúa con la validación
     $validated = $request->validate([
@@ -62,7 +60,6 @@ public function store(Request $request)
 
     return redirect()->route('booking.confirmed')->with('success', 'Reserva creada correctamente.');
 }
-
 
     // Mostrar una reserva específica
     public function show($id)

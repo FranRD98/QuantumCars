@@ -10,10 +10,12 @@ class CheckRole
 {
     public function handle(Request $request, Closure $next, $role)
     {
+        // Verificar si el usuario está autenticado y su rol es el correcto
         if (!Auth::check() || Auth::user()->role !== $role) {
-            return redirect()->route('login');
+            return abort(403, 'No tienes permiso para acceder a esta página.');
         }
 
         return $next($request);
     }
 }
+
