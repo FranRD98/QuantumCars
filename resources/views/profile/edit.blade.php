@@ -1,29 +1,34 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
+@include('layouts.header', ['title' => 'Editar Perfil | QuantumCars Rent'])
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-profile-information-form')
-                </div>
+<section class="py-12 bg-gray-50">
+    <div class="mx-auto space-y-6 max-w-7xl sm:px-6 lg:px-8">
+        <!-- Título Principal -->
+        <h1 class="text-3xl font-bold text-center text-[#8b82f6]">Editar Perfil</h1>
+        
+        <!-- Información de perfil -->
+        <div class="p-4 bg-white shadow sm:p-8 sm:rounded-lg">
+            <h2 class="text-2xl font-semibold text-[#4a4a4a] mb-4">Información de Perfil</h2>
+            <div class="max-w-xl">
+                @include('profile.partials.update-profile-information-form')
             </div>
+        </div>
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-password-form')
-                </div>
+        <!-- Cambiar Contraseña -->
+        <div class="p-4 bg-white shadow sm:p-8 sm:rounded-lg">
+            <h2 class="text-2xl font-semibold text-[#4a4a4a] mb-4">Cambiar Contraseña</h2>
+            <div class="max-w-xl">
+                @include('profile.partials.update-password-form')
             </div>
+        </div>
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.delete-user-form')
-                </div>
+        <!-- Eliminar cuenta -->
+        <div class="p-4 bg-white shadow sm:p-8 sm:rounded-lg">
+            <h2 class="text-2xl font-semibold text-[#4a4a4a] mb-4">Eliminar Cuenta</h2>
+            <div class="max-w-xl">
+                @include('profile.partials.delete-user-form')
             </div>
         </div>
     </div>
-</x-app-layout>
+</section>
+
+@include('layouts.footer')

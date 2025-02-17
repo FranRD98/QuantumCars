@@ -10,27 +10,144 @@ use Illuminate\Http\Request;
 class VehicleController extends Controller
 {
     // Método para mostrar la lista de vehículos
-    public function index()
-    {
-        $vehicles = Vehicle::all(); // Obtener todos los vehículos
-        return view('car-list', compact('vehicles')); // Pasa los vehículos a la vista
-
+    public function index() {
+        $vehicles = Vehicle::orderBy('price', 'asc')->get(); // Ordenar por precio de menor a mayor
+    
+        // Obtener valores únicos para los filtros
+        $brands = Vehicle::select('brand')->distinct()->pluck('brand')->sort();
+        $types = Vehicle::select('type')->distinct()->pluck('type')->sort();
+        $years = Vehicle::select('year')->distinct()->pluck('year')->sortDesc(); // Ordenar años de mayor a menor
+        $fuels = Vehicle::select('fuel')->distinct()->pluck('fuel')->sort();
+        $transmissions = Vehicle::select('transmission')->distinct()->pluck('transmission')->sort();
+        $prices = Vehicle::select('price')->distinct()->pluck('price')->sort();
+    
+        return view('car-list', compact('vehicles', 'brands', 'types', 'years', 'fuels', 'transmissions', 'prices'));
     }
+    
 
     // Método para mostrar la lista de vehículos
-    public function adminIndex()
-    {
-        $vehicles = Vehicle::all(); // Obtener todos los vehículos
-        return view('admin-panel.cars.manage-cars', compact('vehicles')); // Pasa los vehículos a la vista
+    public function adminIndex(){
+        $vehicles = Vehicle::orderBy('brand', 'asc')->get(); // Ordenar por precio de menor a mayor
 
+        return view('admin-panel.cars.manage-cars', compact('vehicles')); // Pasa los vehículos a la vista
     }
+
+    public function indexBrand($brand){
+        $vehicles = Vehicle::where('brand', $brand)
+            ->orderBy('price', 'asc') // Ordenar por precio de menor a mayor
+            ->get();
+
+        // Obtener valores únicos para los filtros
+        $brands = Vehicle::select('brand')->distinct()->pluck('brand')->sort();
+        $types = Vehicle::select('type')->distinct()->pluck('type')->sort();
+        $years = Vehicle::select('year')->distinct()->pluck('year')->sortDesc(); // Ordenar años de mayor a menor
+        $fuels = Vehicle::select('fuel')->distinct()->pluck('fuel')->sort();
+        $transmissions = Vehicle::select('transmission')->distinct()->pluck('transmission')->sort();
+        $prices = Vehicle::select('price')->distinct()->pluck('price')->sort();
+
+        return view('car-list', compact('vehicles', 'brands', 'types', 'years', 'fuels', 'transmissions', 'prices'));
+    }
+
+    public function indexType($type){
+        $vehicles = Vehicle::where('type', $type)
+            ->orderBy('price', 'asc') // Ordenar por precio de menor a mayor
+            ->get();
+
+        // Obtener valores únicos para los filtros
+        $brands = Vehicle::select('brand')->distinct()->pluck('brand')->sort();
+        $types = Vehicle::select('type')->distinct()->pluck('type')->sort();
+        $years = Vehicle::select('year')->distinct()->pluck('year')->sortDesc(); // Ordenar años de mayor a menor
+        $fuels = Vehicle::select('fuel')->distinct()->pluck('fuel')->sort();
+        $transmissions = Vehicle::select('transmission')->distinct()->pluck('transmission')->sort();
+        $prices = Vehicle::select('price')->distinct()->pluck('price')->sort();
+
+        return view('car-list', compact('vehicles', 'brands', 'types', 'years', 'fuels', 'transmissions', 'prices'));
+    }
+
+    public function indexYear($year){
+        $vehicles = Vehicle::where('year', $year)
+            ->orderBy('price', 'asc') // Ordenar por precio de menor a mayor
+            ->get();
+
+        // Obtener valores únicos para los filtros
+        $brands = Vehicle::select('brand')->distinct()->pluck('brand')->sort();
+        $types = Vehicle::select('type')->distinct()->pluck('type')->sort();
+        $years = Vehicle::select('year')->distinct()->pluck('year')->sortDesc(); // Ordenar años de mayor a menor
+        $fuels = Vehicle::select('fuel')->distinct()->pluck('fuel')->sort();
+        $transmissions = Vehicle::select('transmission')->distinct()->pluck('transmission')->sort();
+        $prices = Vehicle::select('price')->distinct()->pluck('price')->sort();
+
+        return view('car-list', compact('vehicles', 'brands', 'types', 'years', 'fuels', 'transmissions', 'prices'));
+    }
+
+
+    public function indexFuel($fuel){
+        $vehicles = Vehicle::where('fuel', $fuel)
+            ->orderBy('price', 'asc') // Ordenar por precio de menor a mayor
+            ->get();
+
+        // Obtener valores únicos para los filtros
+        $brands = Vehicle::select('brand')->distinct()->pluck('brand')->sort();
+        $types = Vehicle::select('type')->distinct()->pluck('type')->sort();
+        $years = Vehicle::select('year')->distinct()->pluck('year')->sortDesc(); // Ordenar años de mayor a menor
+        $fuels = Vehicle::select('fuel')->distinct()->pluck('fuel')->sort();
+        $transmissions = Vehicle::select('transmission')->distinct()->pluck('transmission')->sort();
+        $prices = Vehicle::select('price')->distinct()->pluck('price')->sort();
+
+        return view('car-list', compact('vehicles', 'brands', 'types', 'years', 'fuels', 'transmissions', 'prices'));
+    }
+
+    public function indexTransmission($transmission){
+        $vehicles = Vehicle::where('transmission', $transmission)
+            ->orderBy('price', 'asc') // Ordenar por precio de menor a mayor
+            ->get();
+
+        // Obtener valores únicos para los filtros
+        $brands = Vehicle::select('brand')->distinct()->pluck('brand')->sort();
+        $types = Vehicle::select('type')->distinct()->pluck('type')->sort();
+        $years = Vehicle::select('year')->distinct()->pluck('year')->sortDesc(); // Ordenar años de mayor a menor
+        $fuels = Vehicle::select('fuel')->distinct()->pluck('fuel')->sort();
+        $transmissions = Vehicle::select('transmission')->distinct()->pluck('transmission')->sort();
+        $prices = Vehicle::select('price')->distinct()->pluck('price')->sort();
+
+        return view('car-list', compact('vehicles', 'brands', 'types', 'years', 'fuels', 'transmissions', 'prices'));
+    }
+
+    public function indexPrice($price){
+        $vehicles = Vehicle::where('price', $price)
+            ->orderBy('price', 'asc') // Ordenar por precio de menor a mayor
+            ->get();
+
+        // Obtener valores únicos para los filtros
+        $brands = Vehicle::select('brand')->distinct()->pluck('brand')->sort();
+        $types = Vehicle::select('type')->distinct()->pluck('type')->sort();
+        $years = Vehicle::select('year')->distinct()->pluck('year')->sortDesc(); // Ordenar años de mayor a menor
+        $fuels = Vehicle::select('fuel')->distinct()->pluck('fuel')->sort();
+        $transmissions = Vehicle::select('transmission')->distinct()->pluck('transmission')->sort();
+        $prices = Vehicle::select('price')->distinct()->pluck('price')->sort();
+
+        return view('car-list', compact('vehicles', 'brands', 'types', 'years', 'fuels', 'transmissions', 'prices'));
+    }
+    
 
     // Método para mostrar un vehículo específico
     public function show($id)
     {
         $vehicle = Vehicle::findOrFail($id); // Buscar un vehículo por ID
         $warranties = Warranty::where('vehicle_type', $vehicle->typeWarranty)->get();
-        return view('car-detail', compact('vehicle', 'warranties')); // Pasa el vehículo a la vista
+        $bookings = Booking::where('vehicle_id', $vehicle->id)
+            ->where('start_date', '>=', date('Ymd'))
+            ->get();
+
+        // Convertir las fechas de las reservas en el formato necesario
+        $bookedDates = $bookings->map(function($booking) {
+            return [
+                'from' => $booking->start_date,
+                'to' => $booking->end_date,
+            ];
+        })->toArray();
+    
+        return view('car-detail', compact('vehicle', 'warranties', 'bookings','bookedDates'));
     }
 
     // Método para mostrar el formulario de creación de un nuevo vehículo
@@ -49,15 +166,14 @@ class VehicleController extends Controller
             'year' => 'required|integer|min:1900|max:2099',
             'color' => 'required|string|max:255',
             'fuel' => 'required|string',
-            'mileage' => 'required|numeric',
             'transmission' => 'required|string',
             'price' => 'required|numeric',
             'type' => 'required|string|max:255',
-            'image_1' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp',
-            'image_2' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp',
-            'image_3' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp',
-            'image_4' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp',
-            'image_5' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp',
+            'image_1' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp,avif',
+            'image_2' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp,avif',
+            'image_3' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp,avif',
+            'image_4' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp,avif',
+            'image_5' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp,avif',
             'description' => 'nullable|string',
             'fee' => 'required|numeric',
             'typeWarranty' => 'nullable|string|max:255',
@@ -79,14 +195,12 @@ class VehicleController extends Controller
             }
         }
 
-
         // Creación del nuevo vehículo en la base de datos
         $vehicle = Vehicle::create([
             'brand' => $validated['brand'],
             'model' => $validated['model'],
             'type' => $validated['type'],
             'year' => $validated['year'],
-            'mileage' => $validated['mileage'],
             'transmission' => $validated['transmission'],
             'fuel' => $validated['fuel'],
             'color' => $validated['color'],
@@ -125,7 +239,6 @@ class VehicleController extends Controller
                 'year' => 'required|integer|min:1900|max:2099',
                 'color' => 'required|string|max:255',
                 'fuel' => 'required|string',
-                'mileage' => 'required|numeric',
                 'transmission' => 'required|string',
                 'price' => 'required|numeric',
                 'type' => 'required|string|max:255',
@@ -158,7 +271,6 @@ class VehicleController extends Controller
                 'model' => $validated['model'],
                 'type' => $validated['type'],
                 'year' => $validated['year'],
-                'mileage' => $validated['mileage'],
                 'transmission' => $validated['transmission'],
                 'fuel' => $validated['fuel'],
                 'color' => $validated['color'],
@@ -182,43 +294,4 @@ class VehicleController extends Controller
             return redirect()->route('manage-cars');
 
         }
-        
-        public function reserve(Request $request, $idVehicle)
-        {
-            // Verifica que el usuario esté autenticado
-            $user = auth()->user();
-            if (!$user) {
-                return redirect()->route('login');
-            }
-        
-            // Obtener el vehículo
-            $vehicle = Vehicle::findOrFail($idVehicle);
-        
-            // Validar los datos de la reserva (fecha de inicio, fecha de fin, etc.)
-            $validated = $request->validate([
-                'start_date' => 'required|date|after_or_equal:today',
-                'end_date' => 'required|date|after:start_date',
-            ]);
-        
-            // Calcular el precio total (esto lo puedes ajustar según tu lógica)
-            $days = \Carbon\Carbon::parse($validated['start_date'])->diffInDays($validated['end_date']);
-            $totalPrice = $vehicle->price * $days;
-        
-            // Crear la reserva
-            $booking = Booking::create([
-                'user_id' => $user->id,
-                'vehicle_id' => $vehicle->id,
-                'start_date' => $validated['start_date'],
-                'end_date' => $validated['end_date'],
-                'total_price' => $totalPrice,
-                'status' => 'pending', // O 'confirmed' si ya se ha confirmado
-            ]);
-        
-            // Redirigir con éxito
-            return redirect()->route('booking.success')->with('success', 'Reserva realizada correctamente');
-        }
-        
-        
-
-    
 }

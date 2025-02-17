@@ -54,11 +54,6 @@
             </div>
 
             <div>
-                <label class="block mb-1 text-sm text-gray-600">Kilometraje*</label>
-                <input required type="number" name="mileage" class="w-full p-2 border rounded-lg focus:ring-[#8b82f6] focus:border-[#8b82f6]">
-            </div>
-
-            <div>
                 <label class="block mb-1 text-sm text-gray-600">Transmisión*</label>
                 <select required name="transmission" class="w-full p-2 border rounded-lg focus:ring-[#8b82f6] focus:border-[#8b82f6]">
                     <option value="Manual">Manual</option>
@@ -92,8 +87,8 @@
             </div>
 
             <div class="col-span-2">
-                <label required class="block mb-1 text-sm text-gray-600">Descripción*</label>
-                <textarea name="description" class="w-full p-2 border rounded-lg" rows="6"></textarea>
+                <label class="block mb-1 text-sm text-gray-600">Descripción*</label>
+                <textarea required name="description" class="w-full p-2 border rounded-lg" rows="6"></textarea>
             </div>
 
 

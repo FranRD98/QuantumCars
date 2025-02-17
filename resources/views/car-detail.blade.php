@@ -2,22 +2,25 @@
 
 <div class="flex flex-row justify-between px-24 py-6 gap-x-5">
     <div class="flex flex-col w-3/5 gap-y-6">
+
+        <div class="p-6 border rounded-xl bg-[#8b82f6]">
         <!-- Galería del vehículo -->
-        @for ($i = 1; $i <= 5; $i++)
-            @if (!empty($vehicle->{'image_' . $i}))
-                <img src="{{ asset('storage/' . $vehicle->{'image_' . $i}) }}" alt="{{ $vehicle->brand }} {{ $vehicle->model }}" class="object-cover rounded-lg">
-            @endif
-        @endfor
+            @for ($i = 1; $i <= 5; $i++)
+                @if (!empty($vehicle->{'image_' . $i}))
+                    <img src="{{ asset('storage/' . $vehicle->{'image_' . $i}) }}" alt="{{ $vehicle->brand }} {{ $vehicle->model }}" class="object-cover rounded-lg">
+                @endif
+            @endfor
+        </div>
 
         <!-- Características del vehículo -->
         <div class="p-6 border rounded-xl">
             <h2 class="mb-4 text-2xl text-gray-800 font-base">Características:</h2>
             <div class="grid grid-cols-2 gap-x-6 gap-y-4">
-                @foreach (['Marca' => 'brand', 'Modelo' => 'model', 'Año' => 'year', 'Kilometraje' => 'mileage', 'Combustible' => 'fuel', 'Transmisión' => 'transmission', 'Color' => 'color', 'Tipo' => 'type'] as $label => $field)
+                @foreach (['Marca' => 'brand', 'Modelo' => 'model', 'Año' => 'year', 'Combustible' => 'fuel', 'Transmisión' => 'transmission', 'Color' => 'color', 'Tipo' => 'type'] as $label => $field)
                     <div class="flex justify-between">
                         <p class="text-base text-[#696F7A] font-base">{{ $label }}:</p>
                         <p class="text-base text-[#050f23] font-base">
-                            {{ $field === 'mileage' ? number_format($vehicle->$field, 0, ',', '.') . ' km' : $vehicle->$field }}
+                            {{ $vehicle->$field }}
                         </p>
                     </div>
                 @endforeach
@@ -35,32 +38,25 @@
     <div class="sticky flex flex-col w-2/5 h-full top-24 gap-y-6">
         <!-- Estado del vehículo -->
         <div class="flex flex-col p-6 border rounded-xl gap-y-2">
-            <div class="w-2/5 px-3 py-2 text-center rounded-full {{ $vehicle->available ? 'text-green-500 bg-green-200' : 'text-red-500 bg-red-200' }}">
+            <!--<div class="w-2/5 px-3 py-2 text-center rounded-full {{ $vehicle->available ? 'text-green-500 bg-green-200' : 'text-red-500 bg-red-200' }}">
                 <h2>{{ $vehicle->available ? 'Disponible' : 'No disponible' }}</h2>
-            </div>
+            </div>-->
             <h2 class="text-2xl text-gray-800 font-base">{{ $vehicle->year }} {{ $vehicle->brand }} {{ $vehicle->model }}</h2>
-            <p class="text-3xl text-gray-900"><strong>{{ number_format($vehicle->price, 0, ',', '.') }} €</strong>/día</p>
+            <p class="float-right text-3xl text-gray-900"><strong>{{ number_format($vehicle->price, 0, ',', '.') }} €</strong>/día</p>
         </div>
 
         <!-- Selector de fechas y detalles-->
         <div class="flex flex-col p-6 border rounded-xl gap-y-4">
-            <h2 class="text-base text-[#8b82f6] font-base">Selecciona tus fechas</h2>
-            <input type="text" id="date-range" class="w-full p-2 border rounded-lg" placeholder="Selecciona las fechas">
-            <hr>
+        <div class="flex flex-row items-center gap-x-6">
+        <input type="text" id="date-range" class="w-4/5 p-2 border rounded-lg" placeholder="Selecciona las fechas">
+        <p id="selectedDays"></p>
+        </div>
 
-            <div class="flex justify-between">
-                <h2 class="text-base text-[#696F7A] font-base">Precio por día</h2>
-                <h2 class="text-base text-[#050f23] font-base">{{ number_format($vehicle->price, 0, ',', '.') }} €</h2>
-            </div>
+            <hr>
 
             <div class="flex justify-between">
                 <h2 class="text-base text-[#696F7A] font-base">Fianza</h2>
                 <h2 class="text-base text-[#050f23] font-base">{{ number_format($vehicle->fee, 0, ',', '.') }} €</h2>
-            </div>
-
-            <div class="flex justify-between">
-                <h2 class="text-base text-[#696F7A] font-base">Impuestos</h2>
-                <h2 class="text-base text-[#050f23] font-base">21%</h2>
             </div>
 
             <hr>
@@ -94,22 +90,26 @@
         let pricePerDay = {{ $vehicle->price }};
         let fee = {{ $vehicle->fee }};
         let tax = 1.21;
+        let bookedDates = @json($bookedDates);
 
         let dateRangePicker = flatpickr("#date-range", {
             mode: "range",
             minDate: "today",
-            dateFormat: "d-m-Y",  // El formato es d-m-Y
+            dateFormat: "Y-m-d",  // El formato es d-m-Y
             locale: "es", // Traducido a español
+            disable: bookedDates,
+
             onClose: function(selectedDates) {
                 if (selectedDates.length === 2) {
-                    let diffDays = Math.ceil((selectedDates[1] - selectedDates[0]) / (1000 * 60 * 60 * 24));
+                    let diffDays = Math.ceil((selectedDates[1] - selectedDates[0]) / (1000 * 60 * 60 * 24)) + 1;
                     let total = ((pricePerDay * diffDays) + fee ) * tax;
                     
-                    // Usamos el formato adecuado para las fechas seleccionadas (en formato d-m-Y)
-                    let start_date = flatpickr.formatDate(selectedDates[0], "d/m/Y - H:i");
-                    let end_date = flatpickr.formatDate(selectedDates[1], "d/m/Y - H:i");
+                    // Usamos el formato adecuado para Laravel las fechas seleccionadas (en formato y-m-D)
+                    let start_date = flatpickr.formatDate(selectedDates[0], "Y/m/d");
+                    let end_date = flatpickr.formatDate(selectedDates[1], "Y/m/d");
 
                     document.getElementById('total-price').textContent = total.toFixed(0) + ' €';
+                    document.getElementById('selectedDays').textContent = diffDays + ' días'
                     document.getElementById('total-hidden').value = total;
                     document.getElementById('days-hidden').value = diffDays; // Aquí estamos pasando los días
                     document.getElementById('start_date-hidden').value = start_date; // Pasamos la fecha inicial

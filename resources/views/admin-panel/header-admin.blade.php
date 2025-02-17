@@ -18,28 +18,19 @@
                 <h1 class="text-2xl font-semibold hover:text-[#8b82f6] transition-all">QuantumCars Rent</h1>
             </a>
 
-            <a href="{{ route('logout') }}">
-                <h1 class="text-base hover:text-[#8b82f6] transition-all">Cerrar Sesión</h1>
-            </a>
+        <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <button type="submit" class="block w-full text-left px-4 py-2 hover:text-[#8b82f6] transition-all">
+                Cerrar Sesión
+            </button>
+        </form>
     </div>
 </header>
 
 <!-- Sidebar/Aside -->
 <aside class="fixed mt-20 w-auto h-full text-[#050f23] bg-gray-100 shadow-lg">
 <div class="p-6">
-<h2>General</h2>
 
-        <ul class="space-y-2">
-            <li><a href="{{ route('index') }}" class="block px-4 py-2 hover:text-[#8b82f6] transition-all">Inicio</a></li>
-            <li><a href="{{ route('vehicle.index') }}" class="block px-4 py-2 hover:text-[#8b82f6] transition-all">Vehículos</a></li>
-            <li><a href="{{ route('faq') }}" class="block px-4 py-2 hover:text-[#8b82f6] transition-all">Preguntas Frecuentes</a></li>
-            <li><a href="{{ route('contact') }}" class="block px-4 py-2 hover:text-[#8b82f6] transition-all">Contacto</a></li>
-        </ul>
-    </div>
-    <hr>
-
-    <div class="p-6">
-    <h2>Admin</h2>
 
     <ul class="space-y-2">
     <li>
@@ -49,7 +40,7 @@
         </a>
     </li>
     <li>
-        <a href="{{ route('warranty.index') }}" 
+        <a href="{{ route('manage-warranties') }}" 
            class="block px-4 py-2 transition-all {{ request()->routeIs('warranty.index') ? 'text-[#8b82f6]' : 'hover:text-[#8b82f6]' }}">
             Gestionar Garantías
         </a>
@@ -73,7 +64,6 @@
 
 <!-- Contenido principal -->
 <main class="p-8 ml-64">
-    <!-- Aquí va el contenido principal de la página -->
 </main>
 
 </body>

@@ -19,7 +19,6 @@ return new class extends Migration
             $table->year('year');
             $table->string('color', 30);
             $table->enum('fuel', ['Gasolina', 'Diésel', 'Eléctrico', 'Híbrido']);
-            $table->integer('mileage')->unsigned();
             $table->enum('transmission', ['Manual', 'Automático']);
             $table->decimal('price', 10, 2);
             $table->enum('type', ['Compacto', 'SUV', 'Sedán', 'Deportivo', 'Furgoneta', 'Electrico', 'Otro']);

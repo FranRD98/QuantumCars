@@ -44,23 +44,35 @@
             @if(auth()->check())
                     @if(auth()->user()->isAdmin())
                         <li class="relative inline-block group">
-                            <a href="#">Panel Admin</a>
-                            <ul class="absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300 visibility-hidden group-hover:visible bg-white shadow-lg min-w-[150px] p-2 rounded-md z-10">
+                        <div>¡Bienvenido/a {{ Auth::user()->name }}!*</div>
+                        <ul class="absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300 visibility-hidden group-hover:visible bg-white shadow-lg min-w-[150px] p-2 rounded-md z-10">
                                 <li><a href="{{ route('manage-cars') }}" class="block px-4 py-2 hover:text-[#8b82f6] transition-all">Gestionar Coches</a></li>
                                 <li><a href="{{ route('manage-bookings') }}" class="block px-4 py-2 hover:text-[#8b82f6] transition-all">Gestionar Reservas</a></li>
                                 <li><a href="{{ route('manage-users') }}" class="block px-4 py-2 hover:text-[#8b82f6] transition-all">Gestionar Usuarios</a></li>
-                                <li><a href="{{ route('logout') }}" class="block px-4 py-2 hover:text-[#8b82f6] transition-all">Cerrar Sesión</a></li>
-                            </ul>
+                                <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <button type="submit" class="block w-full text-left px-4 py-2 hover:text-[#8b82f6] transition-all">
+                Cerrar Sesión
+            </button>
+        </form>                            </ul>
                         </li>
 
                     @elseif(auth()->user()->isCliente())
                     <li class="relative inline-block group">
-                            <a href="#">Mi Cuenta</a>
+                            <div>¡Bienvenido/a {{ Auth::user()->name }}!</div>
                             <ul class="absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300 visibility-hidden group-hover:visible bg-white shadow-lg min-w-[150px] p-2 rounded-md z-10">
-                                <li><a href="#" class="block px-4 py-2 hover:text-[#8b82f6] transition-all">Mis Reservas</a></li>
-                                <!--<li><a href="{{ route('profile') }}" class="block px-4 py-2 hover:text-[#8b82f6] transition-all">Mi Perfil</a></li>-->
-                                <li><a href="{{ route('logout') }}" class="block px-4 py-2 hover:text-[#8b82f6] transition-all">Cerrar Sesión</a></li>
-                            </ul>
+    <li><a href="{{ route('user.bookings', ['id' => auth()->id()]) }}" class="block px-4 py-2 hover:text-[#8b82f6] transition-all">Mis Reservas</a></li>
+    <li><a href="{{ route('profile.edit') }}" class="block px-4 py-2 hover:text-[#8b82f6] transition-all">Mi Perfil</a></li>
+    <li>
+        <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <button type="submit" class="block w-full text-left px-4 py-2 hover:text-[#8b82f6] transition-all">
+                Cerrar Sesión
+            </button>
+        </form>
+    </li>
+</ul>
+
                         </li>                    
                     @endif
                 @else

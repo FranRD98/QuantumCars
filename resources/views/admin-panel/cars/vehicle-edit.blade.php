@@ -57,11 +57,6 @@
         </div>
 
         <div>
-            <label class="block mb-1 text-sm text-gray-600">Kilometraje*</label>
-            <input required type="number" name="mileage" value="{{ $vehicle->mileage }}" class="w-full p-2 border rounded-lg focus:ring-[#8b82f6] focus:border-[#8b82f6]">
-        </div>
-
-        <div>
             <label class="block mb-1 text-sm text-gray-600">Transmisión*</label>
             <select required name="transmission" class="w-full p-2 border rounded-lg focus:ring-[#8b82f6] focus:border-[#8b82f6]">
                 <option value="Manual" {{ $vehicle->transmission == 'Manual' ? 'selected' : '' }}>Manual</option>

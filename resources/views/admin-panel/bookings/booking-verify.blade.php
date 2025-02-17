@@ -15,7 +15,7 @@
             </div>
 
             <div class="flex flex-row gap-x-6">
-                <img src="{{ asset('storage/' . $vehicle->image_1) }}" alt="{{ $vehicle->brand }}" class="object-cover w-64 h-auto rounded-lg">
+                <img src="{{ asset('storage/' . $vehicle->image_1) }}" alt="{{ $vehicle->brand }}" class="object-contain w-64 h-auto rounded-lg">
                 
                 <div class="flex flex-col gap-y-2">
                     <h3 class="text-xl font-medium text-gray-900">{{ $vehicle->brand }} {{ $vehicle->model }}</h3>
@@ -64,18 +64,8 @@
             </div>
 
             <div class="flex justify-between">
-                <p class="text-gray-600">Precio diario</p>
-                <p class="font-medium text-gray-900">{{ number_format($vehicle->price, 0, ',', '.') }} €</p>
-            </div>
-
-            <div class="flex justify-between">
                 <p class="text-gray-600">Fianza</p>
                 <p class="font-medium text-gray-900">{{ number_format($vehicle->fee, 0, ',', '.') }} €</p>
-            </div>
-
-            <div class="flex justify-between">
-                <p class="text-gray-600">Impuestos</p>
-                <p class="font-medium text-gray-900">21%</p>
             </div>
 
             <hr>
@@ -99,8 +89,7 @@
                 <input type="hidden" name="start_date" value="{{ $start_date }}">
                 <input type="hidden" name="end_date" value="{{ $end_date }}">
                 <input type="hidden" name="total_price" value="{{ $total_price }}">
-                <input type="hidden" name="user_id" value="{{ $total_price }}">
-
+                <input type="hidden" name="user_id" value="{{ auth()->id() }}">
                 <button type="submit" id="confirm-button" class="w-full px-8 py-3 text-lg font-medium text-white bg-gray-300 rounded-lg cursor-not-allowed" disabled>
                     Confirmar Reserva
                 </button>
@@ -114,6 +103,8 @@
 <!-- Script para calcular precio total y habilitar botón -->
 <script>
     document.addEventListener('DOMContentLoaded', function () {
+
+        // Valida que el checkbox esté activado para poder habilitar el botón de reserva
         const confirmButton = document.getElementById('confirm-button');
         const termsCheckbox = document.getElementById('terms');
 
@@ -128,6 +119,29 @@
                 confirmButton.disabled = true;
             }
         });
+
+        // Formatea las fechas al formato adecuado para crear el registro en la base de datos 
+        const bookingForm = document.getElementById('booking-form');
+
+        bookingForm.addEventListener('submit', function(event) {
+            // Selecciona los campos de fecha del formulario
+            const startDateInput = document.querySelector('input[name="start_date"]');
+            const endDateInput = document.querySelector('input[name="end_date"]');
+
+            // Convierte las fechas al formato 'Y-m-d' (YYYY-MM-DD)
+            const startDate = new Date(startDateInput.value);
+            const endDate = new Date(endDateInput.value);
+
+            // Asegúrate de que las fechas sean correctas antes de enviar
+            startDateInput.value = startDate.toISOString().split('T')[0]; // 'YYYY-MM-DD'
+            endDateInput.value = endDate.toISOString().split('T')[0];     // 'YYYY-MM-DD'
+            
+            // Verifica las fechas antes de enviar el formulario
+            console.log("Start Date:", startDateInput.value);
+            console.log("End Date:", endDateInput.value);
+        });
+
+
     });
 </script>
 
