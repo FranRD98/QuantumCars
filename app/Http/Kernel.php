@@ -1,5 +1,4 @@
-  protected $middlewareGroups = [
-        'web' => [
+  <php?      'web' => [
             \App\Http\Middleware\VerifyCsrfToken::class,
         ],
 
@@ -8,3 +7,5 @@
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
     ];
+
+    ?>
