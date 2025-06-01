@@ -7,7 +7,8 @@
         <!-- Galería del vehículo -->
             @for ($i = 1; $i <= 5; $i++)
                 @if (!empty($vehicle->{'image_' . $i}))
-                    <img src="{{ asset('storage/' . $vehicle->{'image_' . $i}) }}" alt="{{ $vehicle->brand }} {{ $vehicle->model }}" class="object-cover rounded-lg">
+                    <img src="{{ asset('storage/' . $vehicle->{'image_' . $i}) }}" alt="{{ $vehicle->brand }} {{ $vehicle->model }}" 
+                        class="mx-auto object-contain h-auto w-full max-h-[500px] rounded-lg">
                 @endif
             @endfor
         </div>

@@ -211,14 +211,14 @@
         </div>
 
     @else
-    <div class="grid grid-cols-1 gap-8 px-6 mx-auto max-w-7xl sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
+    <div class="grid grid-cols-1 gap-8 px-6 mx-auto max-w-screen-2xl sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
         
 
         @foreach ($vehicles as $vehicle)
         @if($vehicle->published === 1)
 
             <a href="{{ route('vehicle.show', ['id' => $vehicle->id]) }}" class="overflow-hidden bg-white rounded-lg shadow-lg group">
-            <div class="relative bg-[#8b82f6] h-40 flex items-center justify-center overflow-hidden">
+            <div class="relative bg-[#8b82f6] h-50 flex items-center justify-center overflow-hidden">
             <img class="object-contain object-center w-full h-full transition-all duration-300 ease-in-out group-hover:scale-105" 
                 src="{{ asset('storage/' . $vehicle->image_1) }}" alt="{{ $vehicle->brand }} {{ $vehicle->model }}">
             </div>
