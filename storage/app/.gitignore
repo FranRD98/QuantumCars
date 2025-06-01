@@ -1,4 +1,8 @@
 *
 !private/
 !public/
+!public/vehicles-photos/
+!public/vehicles-photos/**
+!public/landing/
+!public/landing/**
 !.gitignore

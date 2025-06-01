@@ -21,7 +21,7 @@ return new class extends Migration
             $table->enum('fuel', ['Gasolina', 'Diésel', 'Eléctrico', 'Híbrido']);
             $table->enum('transmission', ['Manual', 'Automático']);
             $table->decimal('price', 10, 2);
-            $table->enum('type', ['Compacto', 'SUV', 'Sedán', 'Deportivo', 'Furgoneta', 'Electrico', 'Otro']);
+            $table->enum('type', ['Compacto', 'SUV', 'Sedán', 'Deportivo', 'Furgoneta', 'Familiar', 'Eléctrico', 'Otro']);
             $table->string('image_1')->nullable(); // URL de la imagen opcional
             $table->string('image_2')->nullable(); // URL de la imagen opcional
             $table->string('image_3')->nullable(); // URL de la imagen opcional
