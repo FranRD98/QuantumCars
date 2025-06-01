@@ -17,11 +17,5 @@ class DatabaseSeeder extends Seeder
         $this->call([
             VehicleSeeder::class,
         ]);
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'surname' => 'Example',
-            'email' => 'test@example.com',
-        ]);
     }
 }

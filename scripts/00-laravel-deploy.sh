@@ -13,4 +13,8 @@ echo "Publishing cloudinary provider..."
 php artisan vendor:publish --provider="CloudinaryLabs\CloudinaryLaravel\CloudinaryServiceProvider" --tag="cloudinary-laravel-config"
 
 echo "Running migrations and seeding..."
-php artisan migrate --force --seed
+# PRODUCCIÓN (Solo agrega datos)
+#php artisan migrate --force --seed
+
+# DEBUG (Limpia toda la base de datos)
+php artisan migrate:fresh --seed --force
