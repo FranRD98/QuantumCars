@@ -22,9 +22,12 @@
                     <h3 class="text-base">X coches disponibles</h3>
                     <p class="block mt-8 text-xl font-semibold">Descubrir vehículos</p>
                 </div>
-                <div class="w-full p-8 overflow-hidden">
-                    <img class="scale-x-[-1.5] scale-y-[1.5] ml-40 transition-all duration-500 ease-in-out group-hover:ml-12" src="{{ asset('storage/landing/Compactos.avif') }}">
-                </div>
+                <div class="relative w-full h-full overflow-hidden">
+                    <img 
+                        src="{{ asset('storage/landing/Compactos.svg') }}" 
+                        class="absolute right-[-40%] h-full object-contain transition-all duration-500 ease-in-out group-hover:right-[-20%]" 
+                        alt="Compactos">
+                    </div>
             </a>
 
             <!-- CARD SUV's -->
@@ -34,8 +37,11 @@
                     <h3 class="text-base">X coches disponibles</h3>
                     <p class="block mt-8 text-xl font-semibold">Descubrir vehículos</p>
                 </div>
-                <div class="w-full p-8 overflow-hidden">
-                    <img class="scale-x-[-1.5] scale-y-[1.5] ml-40 transition-all duration-500 ease-in-out group-hover:ml-12" src="{{ asset('storage/landing/SUV.avif') }}">
+                <div class="relative w-full h-full overflow-hidden">
+                    <img 
+                        src="{{ asset('storage/landing/SUV.svg') }}" 
+                        class="absolute right-[-30%] h-full max-h-32 object-contain transition-all duration-500 ease-in-out group-hover:right-[-10%]" 
+                        alt="SUV">
                 </div>
             </a>
 
@@ -46,9 +52,12 @@
                     <h3 class="text-base">X coches disponibles</h3>
                     <p class="block mt-8 text-xl font-semibold">Descubrir vehículos</p>
                 </div>
-                <div class="w-full p-8 overflow-hidden">
-                    <img class="scale-x-[-1.5] scale-y-[1.5] ml-40 transition-all duration-500 ease-in-out group-hover:ml-12" src="{{ asset('storage/landing/Sedan.avif') }}">
-                </div>
+                <div class="relative w-full h-full overflow-hidden">
+                    <img 
+                        src="{{ asset('storage/landing/Sedan.svg') }}" 
+                        class="absolute right-[-40%] h-full max-h-32 object-contain transition-all duration-500 ease-in-out group-hover:right-[-20%]" 
+                        alt="Sedán">
+                 </div>
             </a>
 
             <!-- CARD Deportivos -->
@@ -58,9 +67,12 @@
                     <h3 class="text-base">X coches disponibles</h3>
                     <p class="block mt-8 text-xl font-semibold">Descubrir vehículos</p>
                 </div>
-                <div class="w-full p-8 overflow-hidden">
-                    <img class="scale-x-[-1.5] scale-y-[1.5] ml-40 transition-all duration-500 ease-in-out group-hover:ml-12" src="{{ asset('storage/landing/Deportivos.png') }}">
-                </div>
+                <div class="relative w-full h-full overflow-hidden">
+                    <img 
+                        src="{{ asset('storage/landing/Deportivos.svg') }}" 
+                        class="absolute right-[-40%] h-full max-h-32 object-contain transition-all duration-500 ease-in-out group-hover:right-[-20%]" 
+                        alt="Deportivos">
+                 </div>
             </a>
 
             <!-- CARD Furgonetas -->
@@ -70,9 +82,12 @@
                     <h3 class="text-base">X coches disponibles</h3>
                     <p class="block mt-8 text-xl font-semibold">Descubrir vehículos</p>
                 </div>
-                <div class="w-full p-8 overflow-hidden">
-                    <img class="scale-x-[1.5] scale-y-[1.5] ml-40 transition-all duration-500 ease-in-out group-hover:ml-12" src="{{ asset('storage/landing/Furgonetas.webp') }}">
-                </div>
+                <div class="relative w-full h-full overflow-hidden">
+                    <img 
+                        src="{{ asset('storage/landing/Furgonetas.svg') }}" 
+                        class="absolute right-[-30%] h-full max-h-32 object-contain transition-all duration-500 ease-in-out group-hover:right-[-10%]" 
+                        alt="Furgonetas">
+                 </div>
             </a>
 
             <!-- CARD Electricos -->
@@ -82,9 +97,12 @@
                     <h3 class="text-base">X coches disponibles</h3>
                     <p class="block mt-8 text-xl font-semibold">Descubrir vehículos</p>
                 </div>
-                <div class="w-full p-8 overflow-hidden">
-                    <img class="scale-x-[1.5] scale-y-[1.5] ml-40 transition-all duration-500 ease-in-out group-hover:ml-12" src="{{ asset('storage/landing/Electricos.avif') }}">
-                </div>
+                <div class="relative w-full h-full overflow-hidden">
+                    <img 
+                        src="{{ asset('storage/landing/Electricos.svg') }}" 
+                        class="absolute right-[-30%] h-full object-contain transition-all duration-500 ease-in-out group-hover:right-[-10%]" 
+                        alt="Electricos">
+                 </div>
             </a>
         </div>
     </section>
