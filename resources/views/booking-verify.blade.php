@@ -14,8 +14,8 @@
                 <h2 class="text-2xl font-semibold text-gray-800">Tu Reserva</h2>
             </div>
 
-            <div class="flex flex-row gap-x-6">
-                <img src="{{ asset('storage/' . $vehicle->image_1) }}" alt="{{ $vehicle->brand }}" class="object-contain w-64 h-auto rounded-lg">
+            <div class="flex flex-col sm:flex-row gap-4 sm:gap-x-6">
+                <img src="{{ asset('storage/' . $vehicle->image_1) }}" alt="{{ $vehicle->brand }}" class="object-contain w-full sm:w-64 h-auto rounded-lg">
                 
                 <div class="flex flex-col gap-y-2">
                     <h3 class="text-xl font-medium text-gray-900">{{ $vehicle->brand }} {{ $vehicle->model }}</h3>

@@ -1,17 +1,17 @@
 @include('layouts.header', ['title' => 'Lista de vehículos | QuantumCars Rent'])
 
 <!-- Buscador de vehículos -->
-<section class="px-8 py-16 bg-gray-100">
+<section class="px-4 sm:px-8 py-10 sm:py-16 bg-gray-100">
 
 @if($vehicles->isEmpty())
 
 @else
 
-<h1 class="text-2xl text-center">Hemos encontrado <span class="text-[#8b82f6]">{{ $vehicles->count() }}</span> vehículos</h1>
+<h1 class="text-xl sm:text-2xl text-center">Hemos encontrado <span class="text-[#8b82f6]">{{ $vehicles->count() }}</span> vehículos</h1>
 @endif
 
     <!-- Buscador -->
-    <div class="flex w-full mt-8 items-center justify-center py-8 bg-white rounded-lg shadow-[0px_10px_20px_#8b82f64d] gap-2">
+    <div class="flex flex-col sm:flex-row flex-wrap w-full mt-8 items-stretch sm:items-center justify-center p-4 sm:py-8 bg-white rounded-lg shadow-[0px_10px_20px_#8b82f64d] gap-3 sm:gap-2">
 
         <!-- Filtros Marca -->
         <div class="flex flex-row gap-2 px-4 py-2 border rounded-full shadow-sm bg-white text-gray-700 focus:ring-[#8b82f6] focus:outline-none">

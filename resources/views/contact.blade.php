@@ -2,8 +2,8 @@
 
 <!-- Sección Hero -->
 <section class="py-16 text-center bg-gray-100">
-    <h1 class="text-5xl font-semibold">Contáctanos</h1>
-    <p class="mt-4 text-lg text-gray-600">¿Tienes preguntas? Estamos aquí para ayudarte.</p>
+    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-semibold">Contáctanos</h1>
+    <p class="mt-4 text-base sm:text-lg text-gray-600">¿Tienes preguntas? Estamos aquí para ayudarte.</p>
 </section>
 
 <!-- Sección de Contacto -->

@@ -1,18 +1,19 @@
 @include('admin-panel.header-admin', ['title' => 'Gestionar Usuarios | QuantumCars Rent'])
 
 <!-- Contenido principal -->
-<main class="ml-48">
+<main class="lg:ml-64 pt-20 lg:pt-28">
 <section>
 
-        <div class="flex items-center justify-between mb-6">
-            <h1 class="text-4xl">Gestionar Usuarios</h1>
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+            <h1 class="text-2xl sm:text-4xl">Gestionar Usuarios</h1>
 
             <!-- Botón de añadir nuevo usuario -->
-            <div class="flex justify-end">
-                <a class="px-8 py-3 bg-gray-100 text-[#8b82f6] hover:bg-[#8b82f6] hover:text-white rounded-lg transition duration-500 text-lg font-medium" href="{{ route('user.create') }}">Crear Usuario</a>
+            <div class="flex sm:justify-end">
+                <a class="px-6 sm:px-8 py-3 bg-gray-100 text-[#8b82f6] hover:bg-[#8b82f6] hover:text-white rounded-lg transition duration-500 text-base sm:text-lg font-medium" href="{{ route('user.create') }}">Crear Usuario</a>
             </div>
         </div>
 
+        <div class="overflow-x-auto rounded-lg">
         <table class="min-w-full bg-white border-collapse table-auto">
         <thead>
             <tr class="bg-gray-200">
@@ -47,6 +48,7 @@
             @endforeach
         </tbody>
     </table>
+    </div>
 
 
     </section>

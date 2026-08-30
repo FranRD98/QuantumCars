@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+[x-cloak] {
+    display: none !important;
+}
+
 @layer base {
     * {
       font-family: 'Figtree', sans-serif;
@@ -16,10 +20,23 @@
       margin: 0px;
       background-color: white;
       min-height: 100%;
+      overflow-x: hidden;
     }
 
     section {
-      padding: 4rem;
+      padding: 1.5rem 1rem;
+    }
+
+    @media (min-width: 640px) {
+      section {
+        padding: 2.5rem 2rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      section {
+        padding: 4rem;
+      }
     }
 
     /*section h1 {

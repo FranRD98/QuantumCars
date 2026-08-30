@@ -1,7 +1,7 @@
 @include('admin-panel.header-admin', ['title' => 'Gestionar Usuarios | QuantumCars Rent'])
 
 <!-- Contenido principal -->
-<main class="ml-48">
+<main class="lg:ml-64 pt-16 lg:pt-24">
 <section>
 
         <div class="flex items-center justify-between mb-6">
@@ -13,6 +13,7 @@
             </div>
         </div>
 
+        <div class="overflow-x-auto rounded-lg">
         <table class="min-w-full bg-white border-collapse table-auto">
         <thead>
             <tr class="bg-gray-200">
@@ -40,6 +41,7 @@
             @endforeach
         </tbody>
     </table>
+    </div>
 
 
 

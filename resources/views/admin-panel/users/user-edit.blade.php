@@ -1,9 +1,9 @@
 @include('admin-panel.header-admin', ['title' => 'Editar Usuario | QuantumCars Rent'])
 
 <!-- Contenido principal -->
-<main class="ml-48">
+<main class="lg:ml-64 pt-16 lg:pt-24">
 <section class="bg-gray-100">
-    <h1 class="text-4xl text-center">Editar Usuario</h1>
+    <h1 class="text-2xl sm:text-4xl text-center">Editar Usuario</h1>
 </section>
 
 <section>

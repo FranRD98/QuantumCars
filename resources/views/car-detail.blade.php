@@ -1,7 +1,7 @@
 @include('layouts.header', ['title' => $vehicle->brand . ' ' . $vehicle->model . ' ' . $vehicle->year . ' ' . $vehicle->color . ' | QuantumCars Rent'])
 
-<div class="flex flex-row justify-between px-24 py-6 gap-x-5">
-    <div class="flex flex-col w-3/5 gap-y-6">
+<div class="flex flex-col lg:flex-row justify-between px-4 sm:px-8 lg:px-24 py-6 gap-6 lg:gap-x-5">
+    <div class="flex flex-col w-full lg:w-3/5 gap-y-6">
 
         <div class="p-6 border rounded-xl bg-[#8b82f6]">
         <!-- Galería del vehículo -->
@@ -16,7 +16,7 @@
         <!-- Características del vehículo -->
         <div class="p-6 border rounded-xl">
             <h2 class="mb-4 text-2xl text-gray-800 font-base">Características:</h2>
-            <div class="grid grid-cols-2 gap-x-6 gap-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 sm:gap-y-4">
                 @foreach (['Marca' => 'brand', 'Modelo' => 'model', 'Año' => 'year', 'Combustible' => 'fuel', 'Transmisión' => 'transmission', 'Color' => 'color', 'Tipo' => 'type'] as $label => $field)
                     <div class="flex justify-between">
                         <p class="text-base text-[#696F7A] font-base">{{ $label }}:</p>
@@ -36,7 +36,7 @@
     </div>
 
     <!-- Contenedor derecho -->
-    <div class="sticky flex flex-col w-2/5 h-full top-24 gap-y-6">
+    <div class="lg:sticky flex flex-col w-full lg:w-2/5 h-full lg:top-24 gap-y-6">
         <!-- Estado del vehículo -->
         <div class="flex flex-col p-6 border rounded-xl gap-y-2">
             <!--<div class="w-2/5 px-3 py-2 text-center rounded-full {{ $vehicle->available ? 'text-green-500 bg-green-200' : 'text-red-500 bg-red-200' }}">

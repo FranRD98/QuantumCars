@@ -1,6 +1,6 @@
     <!-- Footer -->
-    <footer class="py-16 px-16 text-sm bg-[#050f23] text-[#8e939b]">
-        <div class="flex items-center justify-around ">
+    <footer class="px-6 py-10 text-sm sm:px-16 sm:py-16 bg-[#050f23] text-[#8e939b]">
+        <div class="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-around">
             <div>
                 <h1 class="text-2xl font-bold text-white">QuantumCars Rent</h1>
             </div>
@@ -27,7 +27,7 @@
             </div>
         </div>
         <hr class="bg-[#8e939b] opacity-30 my-6">
-        <div class="flex flex-row items-center justify-around">
+        <div class="flex flex-col items-center gap-2 text-center sm:flex-row sm:justify-around">
             <h1>🚀 Powered By Laravel</h1>
             <h1>2025 QuantumCars Rent by Fran Riera</h1>
         </div>

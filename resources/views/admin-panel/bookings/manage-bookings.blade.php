@@ -1,13 +1,14 @@
 @include('admin-panel.header-admin', ['title' => 'Gestionar Reservas | QuantumCars Rent'])
 
 <!-- Contenido principal -->
-<main class="ml-48">
+<main class="lg:ml-64 pt-20 lg:pt-28">
 <section>
 
         <div class="flex items-center justify-between mb-6">
-            <h1 class="text-4xl">Gestionar Reservas</h1>
+            <h1 class="text-2xl sm:text-4xl">Gestionar Reservas</h1>
         </div>
 
+        <div class="overflow-x-auto rounded-lg">
         <table class="min-w-full bg-white border-collapse table-auto">
         <thead>
             <tr class="bg-gray-200">
@@ -47,6 +48,7 @@
             @endforeach
         </tbody>
     </table>
+    </div>
 
 
     </section>

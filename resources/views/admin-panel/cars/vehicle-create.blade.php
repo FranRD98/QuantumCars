@@ -1,9 +1,9 @@
 @include('admin-panel.header-admin', ['title' => 'Nuevo Vehículo | QuantumCars Rent'])
 
 <!-- Contenido principal -->
-<main class="ml-48">
+<main class="lg:ml-64 pt-16 lg:pt-24">
 <section class="bg-gray-100">
-    <h1 class="text-4xl text-center">Añadir vehículo</h1>
+    <h1 class="text-2xl sm:text-4xl text-center">Añadir vehículo</h1>
 </section>
 
 <section>
@@ -24,7 +24,7 @@
 
     <form action="{{ route('vehicle.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
-        <div class="grid grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
                 <label class="block mb-1 text-sm text-gray-600">Marca*</label>
                 <input required type="text" name="brand" placeholder="Ejemplo: Toyota" class="w-full p-2 border rounded-lg focus:ring-[#8b82f6] focus:border-[#8b82f6]">
@@ -86,34 +86,34 @@
                 <input required type="number" name="fee" class="w-full p-2 border rounded-lg focus:ring-[#8b82f6] focus:border-[#8b82f6]">
             </div>
 
-            <div class="col-span-2">
+            <div class="sm:col-span-2">
                 <label class="block mb-1 text-sm text-gray-600">Descripción*</label>
                 <textarea required name="description" class="w-full p-2 border rounded-lg" rows="6"></textarea>
             </div>
 
 
             <!-- Campos de imágenes adicionales -->
-            <div class="col-span-2">
+            <div class="sm:col-span-2">
                 <label class="block mb-1 text-sm text-gray-600">Imagen Principal*</label>
                 <input required type="file" name="image_1" class="w-full p-2 border rounded-lg">
             </div>
 
-            <div class="col-span-2">
+            <div class="sm:col-span-2">
                 <label class="block mb-1 text-sm text-gray-600">Imagen 2</label>
                 <input type="file" name="image_2" class="w-full p-2 border rounded-lg">
             </div>
 
-            <div class="col-span-2">
+            <div class="sm:col-span-2">
                 <label class="block mb-1 text-sm text-gray-600">Imagen 3</label>
                 <input type="file" name="image_3" class="w-full p-2 border rounded-lg">
             </div>
 
-            <div class="col-span-2">
+            <div class="sm:col-span-2">
                 <label class="block mb-1 text-sm text-gray-600">Imagen 4</label>
                 <input type="file" name="image_4" class="w-full p-2 border rounded-lg">
             </div>
 
-            <div class="col-span-2">
+            <div class="sm:col-span-2">
                 <label class="block mb-1 text-sm text-gray-600">Imagen 5</label>
                 <input type="file" name="image_5" class="w-full p-2 border rounded-lg">
             </div>

@@ -4,9 +4,10 @@
 <section>
 
         <div class="flex items-center justify-between mb-6">
-            <h1 class="text-4xl">Tus Reservas</h1>
+            <h1 class="text-2xl sm:text-4xl">Tus Reservas</h1>
         </div>
 
+        <div class="overflow-x-auto rounded-lg">
         <table class="min-w-full bg-white border-collapse table-auto">
         <thead>
             <tr class="bg-gray-200">
@@ -41,6 +42,7 @@
             @endforeach
         </tbody>
     </table>
+    </div>
 
     </section>
 

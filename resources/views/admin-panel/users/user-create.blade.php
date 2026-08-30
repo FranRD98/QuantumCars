@@ -1,9 +1,9 @@
 @include('admin-panel.header-admin', ['title' => 'Nuevo Usuario | QuantumCars Rent'])
 
 <!-- Contenido principal -->
-<main class="ml-48">
+<main class="lg:ml-64 pt-16 lg:pt-24">
 <section class="bg-gray-100">
-    <h1 class="text-4xl text-center">Añadir usuario</h1>
+    <h1 class="text-2xl sm:text-4xl text-center">Añadir usuario</h1>
 </section>
 
 <section>
@@ -24,7 +24,7 @@
 
     <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
-    <div class="grid grid-cols-2 gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
             <label class="block mb-1 text-sm text-gray-600">Nombre*</label>
             <input required type="text" name="name" class="w-full p-2 border rounded-lg focus:ring-[#8b82f6] focus:border-[#8b82f6]">

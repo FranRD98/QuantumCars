@@ -1,9 +1,9 @@
 @include('admin-panel.header-admin', ['title' => 'Editar Vehículo | QuantumCars Rent'])
 
 <!-- Contenido principal -->
-<main class="ml-48">
+<main class="lg:ml-64 pt-16 lg:pt-24">
 <section class="bg-gray-100">
-    <h1 class="text-4xl text-center">Editar vehículo</h1>
+    <h1 class="text-2xl sm:text-4xl text-center">Editar vehículo</h1>
 </section>
 
 <section>
@@ -89,13 +89,13 @@
             <input required type="number" name="fee" value="{{ $vehicle->fee }}" class="w-full p-2 border rounded-lg focus:ring-[#8b82f6] focus:border-[#8b82f6]">
         </div>
 
-        <div class="col-span-2">
+        <div class="sm:col-span-2">
             <label required class="block mb-1 text-sm text-gray-600">Descripción*</label>
             <textarea name="description" class="w-full p-2 border rounded-lg" rows="6">{{ $vehicle->description }}</textarea>
         </div>
 
         <!-- Campos de imágenes adicionales -->
-<div class="col-span-2">
+<div class="sm:col-span-2">
     <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
         @for ($i = 1; $i <= 5; $i++)
             <div class="flex flex-col">
@@ -126,7 +126,7 @@
 </div>
 
         <!-- Propiedades booleanas -->
-        <div class="flex col-span-2 gap-x-3">
+        <div class="flex sm:col-span-2 gap-x-3">
             <input type="hidden" name="published" value="0">
             <input type="checkbox" name="published" value="1" class="w-4 h-4 border rounded-lg focus:ring-[#8b82f6] focus:border-[#8b82f6]" {{ $vehicle->published === 1 ? 'checked' : '' }}>
             <label class="block mb-1 text-sm text-gray-600">¿Publicado?</label>
