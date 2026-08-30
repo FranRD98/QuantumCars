@@ -6,7 +6,7 @@
         <div>
             <h2 class="text-3xl sm:text-4xl lg:text-5xl font-semibold">Nuevo coche en un par de clicks</h2>
             <p class="mt-4 text-base sm:text-lg text-gray-500">Elige entre cientos de modelos y reserva al instante.</p>
-            <img class="scale-x-[-1] overflow-hidden block w-auto max-w-full max-h-56 sm:max-h-72 mx-auto mt-6 lg:max-w-none lg:max-h-80 lg:mx-0 lg:mt-0 lg:ml-80" src="{{ asset('storage/landing/heroSection.png') }}">
+            <img class="scale-x-[-1] overflow-hidden block w-auto max-w-full max-h-56 sm:max-h-72 mx-auto mt-6 lg:max-w-none lg:max-h-96 lg:mx-0 lg:ml-auto lg:-mr-16 lg:mt-0" src="{{ asset('storage/landing/heroSection.png') }}">
         </div>
     </section>
 
