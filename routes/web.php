@@ -18,7 +18,12 @@ Route::middleware('auth')->group(function () {
 
 // PÁGINA DE INICIO
 Route::get('/', function () {
-    return view('index');
+    $typeCounts = \App\Models\Vehicle::where('published', 1)
+        ->selectRaw('type, COUNT(*) as total')
+        ->groupBy('type')
+        ->pluck('total', 'type');
+
+    return view('index', compact('typeCounts'));
 })->name('index');
 
 // VEHICULOS - Listado General

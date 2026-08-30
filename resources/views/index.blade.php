@@ -19,7 +19,7 @@
             <a href="{{ route('vehicles.type', ['type' => 'Compacto']) }}" class="bg-[#8b82f6] text-white rounded-xl py-6 sm:py-8 pl-6 sm:pl-8 w-full sm:w-[48%] transition duration-300 hover:scale-105 flex flex-row items-center hover:shadow-[0px_10px_20px_#8b82f64d] h-44 sm:h-48 group">
                 <div class="w-2/3">
                     <h2 class="text-xl sm:text-2xl font-medium">Compactos</h2>
-                    <h3 class="text-sm sm:text-base">X coches disponibles</h3>
+                    <h3 class="text-sm sm:text-base">{{ $typeCounts['Compacto'] ?? 0 }} {{ ($typeCounts['Compacto'] ?? 0) == 1 ? 'coche disponible' : 'coches disponibles' }}</h3>
                     <p class="block mt-6 sm:mt-8 text-lg sm:text-xl font-semibold">Descubrir vehículos</p>
                 </div>
                 <div class="relative w-full h-full overflow-hidden">
@@ -34,7 +34,7 @@
             <a href="{{ route('vehicles.type', ['type' => 'SUV']) }}" class="bg-[#8b82f6] text-white rounded-xl py-6 sm:py-8 pl-6 sm:pl-8 w-full sm:w-[48%] transition duration-300 hover:scale-105 flex flex-row items-center hover:shadow-[0px_10px_20px_#8b82f64d] h-44 sm:h-48 group">
                 <div class="w-2/3">
                     <h2 class="text-xl sm:text-2xl font-medium">SUV's</h2>
-                    <h3 class="text-sm sm:text-base">X coches disponibles</h3>
+                    <h3 class="text-sm sm:text-base">{{ $typeCounts['SUV'] ?? 0 }} {{ ($typeCounts['SUV'] ?? 0) == 1 ? 'coche disponible' : 'coches disponibles' }}</h3>
                     <p class="block mt-6 sm:mt-8 text-lg sm:text-xl font-semibold">Descubrir vehículos</p>
                 </div>
                 <div class="relative w-full h-full overflow-hidden">
@@ -49,7 +49,7 @@
             <a href="{{ route('vehicles.type', ['type' => 'Sedán']) }}" class="bg-[#8b82f6] text-white rounded-xl py-6 sm:py-8 pl-6 sm:pl-8 w-full sm:w-[48%] transition duration-300 hover:scale-105 flex flex-row items-center hover:shadow-[0px_10px_20px_#8b82f64d] h-44 sm:h-48 group">
                 <div class="w-2/3">
                     <h2 class="text-xl sm:text-2xl font-medium">Sedán</h2>
-                    <h3 class="text-sm sm:text-base">X coches disponibles</h3>
+                    <h3 class="text-sm sm:text-base">{{ $typeCounts['Sedán'] ?? 0 }} {{ ($typeCounts['Sedán'] ?? 0) == 1 ? 'coche disponible' : 'coches disponibles' }}</h3>
                     <p class="block mt-6 sm:mt-8 text-lg sm:text-xl font-semibold">Descubrir vehículos</p>
                 </div>
                 <div class="relative w-full h-full overflow-hidden">
@@ -64,7 +64,7 @@
             <a href="{{ route('vehicles.type', ['type' => 'Deportivo']) }}" class="bg-[#8b82f6] text-white rounded-xl py-6 sm:py-8 pl-6 sm:pl-8 w-full sm:w-[48%] transition duration-300 hover:scale-105 flex flex-row items-center hover:shadow-[0px_10px_20px_#8b82f64d] h-44 sm:h-48 group">
                 <div class="w-2/3">
                     <h2 class="text-xl sm:text-2xl font-medium">Deportivos</h2>
-                    <h3 class="text-sm sm:text-base">X coches disponibles</h3>
+                    <h3 class="text-sm sm:text-base">{{ $typeCounts['Deportivo'] ?? 0 }} {{ ($typeCounts['Deportivo'] ?? 0) == 1 ? 'coche disponible' : 'coches disponibles' }}</h3>
                     <p class="block mt-6 sm:mt-8 text-lg sm:text-xl font-semibold">Descubrir vehículos</p>
                 </div>
                 <div class="relative w-full h-full overflow-hidden">
@@ -79,7 +79,7 @@
             <a href="{{ route('vehicles.type', ['type' => 'Furgoneta']) }}" class="bg-[#8b82f6] text-white rounded-xl py-6 sm:py-8 pl-6 sm:pl-8 w-full sm:w-[48%] transition duration-300 hover:scale-105 flex flex-row items-center hover:shadow-[0px_10px_20px_#8b82f64d] h-44 sm:h-48 group">
                 <div class="w-2/3">
                     <h2 class="text-xl sm:text-2xl font-medium">Furgonetas</h2>
-                    <h3 class="text-sm sm:text-base">X coches disponibles</h3>
+                    <h3 class="text-sm sm:text-base">{{ $typeCounts['Furgoneta'] ?? 0 }} {{ ($typeCounts['Furgoneta'] ?? 0) == 1 ? 'coche disponible' : 'coches disponibles' }}</h3>
                     <p class="block mt-6 sm:mt-8 text-lg sm:text-xl font-semibold">Descubrir vehículos</p>
                 </div>
                 <div class="relative w-full h-full overflow-hidden">
@@ -94,7 +94,7 @@
             <a href="{{ route('vehicles.type', ['type' => 'Electrico']) }}" class="bg-[#8b82f6] text-white rounded-xl py-6 sm:py-8 pl-6 sm:pl-8 w-full sm:w-[48%] transition duration-300 hover:scale-105 flex flex-row items-center hover:shadow-[0px_10px_20px_#8b82f64d] h-44 sm:h-48 group">
                 <div class="w-2/3">
                     <h2 class="text-xl sm:text-2xl font-medium">Electricos</h2>
-                    <h3 class="text-sm sm:text-base">X coches disponibles</h3>
+                    <h3 class="text-sm sm:text-base">{{ $typeCounts['Electrico'] ?? 0 }} {{ ($typeCounts['Electrico'] ?? 0) == 1 ? 'coche disponible' : 'coches disponibles' }}</h3>
                     <p class="block mt-6 sm:mt-8 text-lg sm:text-xl font-semibold">Descubrir vehículos</p>
                 </div>
                 <div class="relative w-full h-full overflow-hidden">
