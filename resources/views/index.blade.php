@@ -3,10 +3,10 @@
 
     <!-- Sección Hero -->
     <section>
-        <div class="max-w-6xl mx-auto">
+        <div>
             <h2 class="text-3xl sm:text-4xl lg:text-5xl font-semibold">Nuevo coche en un par de clicks</h2>
             <p class="mt-4 text-base sm:text-lg text-gray-500">Elige entre cientos de modelos y reserva al instante.</p>
-            <img class="scale-x-[-1] w-full max-w-2xl mx-auto mt-6 lg:mt-0 lg:ml-auto overflow-hidden" src="{{ asset('storage/landing/heroSection.png') }}">
+            <img class="scale-x-[-1] overflow-hidden block max-w-full mx-auto mt-6 lg:max-w-none lg:mx-0 lg:mt-0 lg:ml-80" src="{{ asset('storage/landing/heroSection.png') }}">
         </div>
     </section>
 
