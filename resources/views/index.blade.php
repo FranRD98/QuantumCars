@@ -91,10 +91,10 @@
             </a>
 
             <!-- CARD Electricos -->
-            <a href="{{ route('vehicles.type', ['type' => 'Electrico']) }}" class="bg-[#8b82f6] text-white rounded-xl py-6 sm:py-8 pl-6 sm:pl-8 w-full sm:w-[48%] transition duration-300 hover:scale-105 flex flex-row items-center hover:shadow-[0px_10px_20px_#8b82f64d] h-44 sm:h-48 group">
+            <a href="{{ route('vehicles.type', ['type' => 'Eléctrico']) }}" class="bg-[#8b82f6] text-white rounded-xl py-6 sm:py-8 pl-6 sm:pl-8 w-full sm:w-[48%] transition duration-300 hover:scale-105 flex flex-row items-center hover:shadow-[0px_10px_20px_#8b82f64d] h-44 sm:h-48 group">
                 <div class="w-2/3">
-                    <h2 class="text-xl sm:text-2xl font-medium">Electricos</h2>
-                    <h3 class="text-sm sm:text-base">{{ $typeCounts['Electrico'] ?? 0 }} {{ ($typeCounts['Electrico'] ?? 0) == 1 ? 'coche disponible' : 'coches disponibles' }}</h3>
+                    <h2 class="text-xl sm:text-2xl font-medium">Eléctricos</h2>
+                    <h3 class="text-sm sm:text-base">{{ $typeCounts['Eléctrico'] ?? 0 }} {{ ($typeCounts['Eléctrico'] ?? 0) == 1 ? 'coche disponible' : 'coches disponibles' }}</h3>
                     <p class="block mt-6 sm:mt-8 text-lg sm:text-xl font-semibold">Descubrir vehículos</p>
                 </div>
                 <div class="relative w-full h-full overflow-hidden">

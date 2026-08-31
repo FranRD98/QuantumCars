@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\UserController;
@@ -17,14 +18,7 @@ Route::middleware('auth')->group(function () {
 });
 
 // PÁGINA DE INICIO
-Route::get('/', function () {
-    $typeCounts = \App\Models\Vehicle::where('published', 1)
-        ->selectRaw('type, COUNT(*) as total')
-        ->groupBy('type')
-        ->pluck('total', 'type');
-
-    return view('index', compact('typeCounts'));
-})->name('index');
+Route::get('/', [HomeController::class, 'index'])->name('index');
 
 // VEHICULOS - Listado General
 Route::get('/vehicles', [VehicleController::class, 'index'])->name('vehicle.index');

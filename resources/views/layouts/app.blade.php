@@ -7,8 +7,8 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <link rel="icon" type="image/svg+xml" href="{{ asset('car_icon.svg') }}">
-        <link rel="alternate icon" href="{{ asset('favicon.ico') }}">
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
+        <link rel="alternate icon" href="/favicon.ico">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
