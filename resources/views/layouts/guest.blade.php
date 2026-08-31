@@ -6,9 +6,8 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name', 'Acceder') }}</title>
-
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
-        <link rel="alternate icon" href="/favicon.ico">
+        <link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml">
+        <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
